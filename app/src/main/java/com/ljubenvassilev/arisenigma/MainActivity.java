@@ -54,7 +54,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     }
 
     private void scramble() {
-        words = permutation(editText.getText().toString().trim());
+        String input = editText.getText().toString().trim();
+        if(input.length() > 10) {
+            input = input.substring(0, 9);
+        }
+        words = permutation(input);
         adapter.update(words);
     }
 
